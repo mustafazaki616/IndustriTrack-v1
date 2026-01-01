@@ -1,0 +1,7 @@
+.btn {
+  @apply px-4 py-2 rounded bg-primary-color text-white;
+}
+
+.card {
+  @apply p-6 bg-white shadow-md rounded-lg;
+}
