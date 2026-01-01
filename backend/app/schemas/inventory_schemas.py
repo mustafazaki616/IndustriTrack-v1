@@ -1,9 +1,18 @@
 from pydantic import BaseModel
+from typing import Optional
+from backend.app.schemas.product_schemas import ProductResponse
 
-class InventoryBase(BaseModel):
-    product_id: int
+class StockBase(BaseModel):
     quantity: int
-    warehouse_location: str
+    reserved_quantity: int = 0
 
-class InventoryUpdate(BaseModel):
-    quantity: int
+class StockResponse(StockBase):
+    warehouse_id: str  # UUID as str
+    last_movement: Optional[str]
+    
+    class Config:
+        from_attributes = True
+
+class ProductStockResponse(ProductResponse):
+    total_stock: int
+    warehouses: list[StockResponse]
