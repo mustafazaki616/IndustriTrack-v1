@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 from app.config import settings
 from app.database.base import Base
 from app.models.user import User  # Import models
+from app.models.product import Product, Warehouse, Stock, BOM, Customer
 
 config = context.config
 target_metadata = Base.metadata
